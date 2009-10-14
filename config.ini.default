@@ -1,0 +1,11 @@
+
+# 
+# connection details
+# 
+
+[Connection]
+host = localhost
+database = chado
+user = tea
+password = 42
+

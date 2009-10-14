@@ -1,0 +1,58 @@
+#########################
+ABOUT
+#########################
+
+MiniGFF is a set of Python tools for extracting minimal GFF files from a Chado database. These files do not
+have any annotation, their purpose (currently) is for use by JBrowse, which doesn't necessarily make use
+of all the annotations.
+
+#########################
+CONFIGURATION
+#########################
+
+To run you must first rename the config.ini.default to 
+config.ini and then edit the file to match your Chado
+installation. 
+
+Depends on the python psycopg2 library. 
+
+
+
+#########################
+EXECUTION
+#########################
+
+
+#### gff.py ####
+
+You run this by doing 
+
+    python gff.py -featureUniqueName Lbr.chr3 
+
+where -featureUniqueName is a top-level Chado feature (in this case LBraziliensis, chromosome 3).
+
+
+#### gff_organism.py ####
+
+For a given organism, you can run
+
+    python gff_organism.py -organism Lbraziliensis -savePath test
+    
+where the -organism parameter refers to its common_name, and the option -savePath parameter refers 
+to a path on your system where you want the files dumped out. If you omit -savePath, it will dump
+everything to standard out. 
+
+
+#### gff_organisms.py #### 
+
+Will return features for a list of organisms, if you supply the -organisms parameter
+
+    python gff_organisms.py -savePath test -organisms Sjaponicum Saureus_MSSA476 Nmeningitidis
+
+or will attempt to export for all the organisms in the database, if -organisms is ommitted
+
+    python gff_organisms.py -savePath test
+
+Please note that -savePath is not optional here.
+
+
