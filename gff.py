@@ -15,6 +15,9 @@ def gffTopLevelFeature(gffQueries, feature):
 
     relations = gffQueries.getRelations("objects", feature_ids)
     residues = gffQueries.getResidues(feature.feature_id)
+    
+    if residues == None:
+    	residues = ""
 
     gffFormatter = GFFFormatter(feature, rows, relations, residues)
     gffFormatter.parse()
