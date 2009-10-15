@@ -6,7 +6,7 @@ from init import host, database, user, password
 
 def getOrganisms(gffQueries, savePath, organisms = None):
     
-    if organisms == None:
+    if organisms == None or len(organisms) == 0:
         organisms = gffQueries.getAllOrganisms()
     
     for organism in organisms:

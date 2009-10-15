@@ -2,6 +2,8 @@ import psycopg2
 import sys
 
 from model import Feature, ObjectRelationship, SubjectRelationship
+from util import dolog
+
 
 class GFFQueries(object):
     
@@ -27,6 +29,7 @@ class GFFQueries(object):
         return self.queries.get(queryName)
     
     def getTopLevelFeatures(self, organism):
+    	dolog("getting top level features for " + str(organism))
         query  = "select f.uniquename,f.feature_id from feature f "
         query += "join cvterm on f.type_id = cvterm.cvterm_id "
         query += "join featureprop using (feature_id) "

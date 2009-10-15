@@ -3,12 +3,12 @@ import sys
 from model import Feature, ObjectRelationship
 from business import GFFQueries
 from format import GFFFormatter
-from cli import getArg
+from util import getArg, dolog
 from init import host, database, user, password
 
 def gffTopLevelFeature(gffQueries, feature):
     rows = gffQueries.getGFF3View(feature.feature_id)
-
+    dolog(feature.uniquename)
     feature_ids = []
     for r in rows:
         feature_ids.append(r[0])

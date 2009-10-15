@@ -1,6 +1,7 @@
 import logging
 import subprocess
 import sys
+import time
 
 def getArg(desiredArgName, mustAbsolutelyBeAnArray = False):
     desiredArgName = "-" + desiredArgName
@@ -21,7 +22,7 @@ def mkDir(filePath):
     dolog(mkdir)
 
 def dolog(tolog):
-    print tolog
+    #print tolog
     logging.debug(time.strftime("%H:%M:%S", time.localtime()) + "\t" + tolog)
 
 LOG_FILENAME = sys.path[0] + "/" + 'logs.txt'
