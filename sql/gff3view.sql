@@ -10,3 +10,4 @@ SELECT f.feature_id, sf.uniquename AS ref, dbx.accession AS source, cv.name AS t
     LEFT JOIN cvterm cv ON f.type_id = cv.cvterm_id
     LEFT JOIN analysisfeature af ON f.feature_id = af.feature_id
     WHERE fl.srcfeature_id = %s
+    ORDER BY fl.fmin, fl.fmax
