@@ -18,8 +18,8 @@ def gffForOrganism(gffQueries, organism, savePath = None):
         if savePath == None:
             dolog (gff)
         else:
-            filePath = savePath + "/" + feature.uniquename
-            dolog("saving : " + savePath + "/" + feature.uniquename)
+            filePath = savePath + "/" + feature.uniquename + ".gff"
+            dolog("saving : " + filePath)
             out = open(filePath, 'w')
             out.write(gff)
             out.close()
