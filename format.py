@@ -36,7 +36,7 @@ class GFFFormatter(object):
     
     def getQualifiers(self, feature_id, uniquename):
         
-        qualifiers = "ID=" + str(uniquename) + ";" + "Name=" + str(uniquename) + ";" + "feature_id=" + str(feature_id) 
+        qualifiers = "ID=" + str(uniquename) + ";" + "Name=" + str(uniquename) # + ";" + "feature_id=" + str(feature_id) 
         
         theRelations = self.relations.get(feature_id)
         
@@ -64,7 +64,7 @@ class GFFFormatter(object):
         out = []
         
         out.append("##gff-version 3")
-        out.append("##sequence-region " +  self.topLevelFeature.uniquename + " 1 " + str(len(self.residues)))
+        out.append("##sequence-region " +  self.topLevelFeature.uniquename + " 1 " + str(len(self.residues) -1 ))
 
         for row in self.newRows:
             line = ""

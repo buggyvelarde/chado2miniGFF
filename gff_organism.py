@@ -11,14 +11,14 @@ def gffForOrganism(gffQueries, organism, savePath = None):
     features = gffQueries.getTopLevelFeatures(organismID)
     
     if savePath != None:
-        mkDir(savePath)
+        mkDir(savePath  + "/" + organism )
     
     for feature in features:
         gff = gffTopLevelFeature(gffQueries, feature)
         if savePath == None:
             dolog (gff)
         else:
-            filePath = savePath + "/" + feature.uniquename + ".gff"
+            filePath = savePath + "/" + organism + "/" + feature.uniquename + ".gff"
             dolog("saving : " + filePath)
             out = open(filePath, 'w')
             out.write(gff)
